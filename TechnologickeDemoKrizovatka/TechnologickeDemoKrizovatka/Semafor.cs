@@ -22,11 +22,11 @@ namespace TechnologickeDemoKrizovatka
     class Semafor
     {
         // Vlastnost indikující stav činnosti semaforu 
-        // 0 => Stát      (Červená)
-        // 1 => Jeď       (Zelená)
-        // 2 => Připravit (Červená + Žlutá)
-        // 3 => Pozor     (Žlutá)
-        // 4 => Servis    (= OFF) 
+        // 0 => Stát      (Červená)         -> dlouhý interval
+        // 1 => Jeď       (Zelená)          -> dlouhý interval
+        // 2 => Připravit (Červená + Žlutá) -> krátký interval
+        // 3 => Pozor     (Žlutá)           -> krátký interval
+        // 4 => Servis    (= OFF)           -> krátký interval
         public byte State { get; private set; }
 
         // Adresa karty na kterou je semafor připojen
@@ -46,10 +46,16 @@ namespace TechnologickeDemoKrizovatka
         private const byte LONG_INTERVAL = 5;
         private const byte SHORT_INTERVAL = 2;
         
-        public Semafor(byte[] sequence)
+        public Semafor(byte card, byte bit_red, byte bit_yellow, byte bit_green, byte[] sequence)
         {
             clock_count = 0;
             sequence_index = 0;
+
+            // inicializace informaci o hardwaru
+            Card = card;
+            Red = bit_red;
+            Yellow = bit_yellow;
+            Green = bit_green;
 
             this.sequence = sequence;
             State = this.sequence[0];
@@ -88,7 +94,7 @@ namespace TechnologickeDemoKrizovatka
         private void ChangeLight(byte state)
         {
             this.State = state; // Aktualizuj hodnotu
-
+            // TODO - komunikace s deskou
         }
     }
 }
