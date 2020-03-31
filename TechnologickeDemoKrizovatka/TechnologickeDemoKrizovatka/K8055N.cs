@@ -2,7 +2,7 @@
 
 namespace TechnologickeDemoKrizovatka
 {
-    class K8055D
+    public class K8055N
     {
         [DllImport("k8055d.dll")]
         public static extern int OpenDevice(int CardAddress);

@@ -14,8 +14,6 @@
  * Karta 2
 */
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace TechnologickeDemoKrizovatka
 {
@@ -32,9 +30,9 @@ namespace TechnologickeDemoKrizovatka
         // Adresa karty na kterou je semafor připojen
         private byte Card { get; set; }
         // Bit dané barvy semaforu
-        private byte Red { get; set; }
-        private byte Yellow { get; set; }
-        private byte Green { get; set; }
+        private Light Red { get; set; }
+        private Light Yellow { get; set; }
+        private Light Green { get; set; }
         
         protected byte clock_count;
         protected byte sequence_index;
@@ -50,12 +48,12 @@ namespace TechnologickeDemoKrizovatka
         {
             clock_count = 0;
             sequence_index = 0;
-
+            
             // inicializace informaci o hardwaru
             Card = card;
-            Red = bit_red;
-            Yellow = bit_yellow;
-            Green = bit_green;
+            Red = new Light(bit_red);
+            Yellow = new Light(bit_yellow);
+            Green = new Light(bit_green);
 
             this.sequence = sequence;
             State = this.sequence[0];
@@ -95,8 +93,8 @@ namespace TechnologickeDemoKrizovatka
         {
             this.State = state; // Aktualizuj hodnotu
 
-            K8055D.SetCurrentDevice(Card);           
-
+            K8055N.SetCurrentDevice(Card); // Spojení se správnou kartou
+            
             // 0 => Stát      (Červená)         -> dlouhý interval
             // 1 => Jeď       (Zelená)          -> dlouhý interval
             // 2 => Připravit (Červená + Žlutá) -> krátký interval
@@ -105,14 +103,29 @@ namespace TechnologickeDemoKrizovatka
             switch (state)
             {
                 case 0:
+                    Red?.SetBit();
+                    Yellow?.ClearBit();
+                    Green?.ClearBit();
                     break;
                 case 1:
+                    Red?.ClearBit();
+                    Yellow?.ClearBit();
+                    Green?.SetBit();
                     break;
                 case 2:
+                    Red?.SetBit();
+                    Yellow?.SetBit();
+                    Green?.ClearBit();
                     break;
                 case 3:
+                    Red?.ClearBit();
+                    Yellow?.SetBit();
+                    Green?.ClearBit();
                     break;
                 case 4:
+                    Red?.ClearBit();
+                    Yellow?.ClearBit();
+                    Green?.ClearBit();
                     break;
             }
         }
