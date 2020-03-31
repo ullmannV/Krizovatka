@@ -30,21 +30,21 @@ namespace TechnologickeDemoKrizovatka
         public byte State { get; private set; }
 
         // Adresa karty na kterou je semafor připojen
-        public byte Card { get; private set; }
+        private byte Card { get; set; }
         // Bit dané barvy semaforu
-        public byte Red { get; private set; }
-        public byte Yellow { get; private set; }
-        public byte Green { get; private set; }
+        private byte Red { get; set; }
+        private byte Yellow { get; set; }
+        private byte Green { get; set; }
         
-        private byte clock_count;
-        private byte sequence_index;
+        protected byte clock_count;
+        protected byte sequence_index;
         
         // Pole obsahující sekvenci
-        private byte[] sequence;
+        protected byte[] sequence;
 
         // Konstanty pro vnitřní použití třídy
-        private const byte LONG_INTERVAL = 5;
-        private const byte SHORT_INTERVAL = 2;
+        protected const byte LONG_INTERVAL = 5;
+        protected const byte SHORT_INTERVAL = 2;
         
         public Semafor(byte card, byte bit_red, byte bit_yellow, byte bit_green, byte[] sequence)
         {
@@ -76,7 +76,7 @@ namespace TechnologickeDemoKrizovatka
             }
         }
 
-        private void IncrementSequenceIndex(byte interval)
+        protected void IncrementSequenceIndex(byte interval)
         {
             if (clock_count == interval)
             {
@@ -94,7 +94,27 @@ namespace TechnologickeDemoKrizovatka
         private void ChangeLight(byte state)
         {
             this.State = state; // Aktualizuj hodnotu
-            // TODO - komunikace s deskou
+
+            K8055D.SetCurrentDevice(Card);           
+
+            // 0 => Stát      (Červená)         -> dlouhý interval
+            // 1 => Jeď       (Zelená)          -> dlouhý interval
+            // 2 => Připravit (Červená + Žlutá) -> krátký interval
+            // 3 => Pozor     (Žlutá)           -> krátký interval
+            // 4 => Servis    (= OFF)           -> krátký interval
+            switch (state)
+            {
+                case 0:
+                    break;
+                case 1:
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    break;
+            }
         }
     }
 }
