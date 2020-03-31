@@ -27,10 +27,10 @@ namespace Krizovatka
         public byte sequence_index;
         
         // Pole obsahující sekvenci
-        protected byte[] sequence;
+        public byte[] sequence { get; set; }
 
         // Konstanty pro vnitřní použití třídy
-        protected const byte LONG_INTERVAL = 5;
+        protected const byte LONG_INTERVAL = 10;
         protected const byte SHORT_INTERVAL = 2;
         
         protected Semafor()
@@ -74,7 +74,7 @@ namespace Krizovatka
                 clock_count = 0; // reset clock counter
 
                 // Test zda sekvence skončila
-                if (++sequence_index == sequence.Length)
+                if (++sequence_index >= sequence.Length)
                 {
                     sequence_index = 0;
                 }
@@ -83,7 +83,7 @@ namespace Krizovatka
             }
         }
 
-        protected virtual void ChangeLight(byte state)
+        protected void ChangeLight(byte state)
         {         
 
             K8055N.SetCurrentDevice(Card); // Spojení se správnou kartou
