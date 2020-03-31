@@ -7,3 +7,4 @@ D:\Škola\PRX\Krizovatka\Krizovatka\Krizovatka\obj\Debug\Krizovatka.csproj.Gener
 D:\Škola\PRX\Krizovatka\Krizovatka\Krizovatka\obj\Debug\Krizovatka.csproj.CoreCompileInputs.cache
 D:\Škola\PRX\Krizovatka\Krizovatka\Krizovatka\obj\Debug\Krizovatka.exe
 D:\Škola\PRX\Krizovatka\Krizovatka\Krizovatka\obj\Debug\Krizovatka.pdb
+D:\Škola\PRX\Krizovatka\Krizovatka\Krizovatka\obj\Debug\Krizovatka.Form1.resources

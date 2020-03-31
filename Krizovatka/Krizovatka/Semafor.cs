@@ -14,7 +14,7 @@ namespace Krizovatka
         // 2 => Připravit (Červená + Žlutá) -> krátký interval
         // 3 => Pozor     (Žlutá)           -> krátký interval
         // 4 => Servis    (= OFF)           -> krátký interval
-        public byte State { get; private set; }
+        public byte State { get; protected set; }
 
         // Adresa karty na kterou je semafor připojen
         private byte Card { get; set; }
@@ -23,8 +23,8 @@ namespace Krizovatka
         private Light Yellow { get; set; }
         private Light Green { get; set; }
         
-        protected byte clock_count;
-        protected byte sequence_index;
+        public byte clock_count;
+        public byte sequence_index;
         
         // Pole obsahující sekvenci
         protected byte[] sequence;
@@ -33,6 +33,10 @@ namespace Krizovatka
         protected const byte LONG_INTERVAL = 5;
         protected const byte SHORT_INTERVAL = 2;
         
+        protected Semafor()
+        {
+            
+        }
         public Semafor(byte card, byte bit_red, byte bit_yellow, byte bit_green, byte[] sequence)
         {
             clock_count = 0;
@@ -74,13 +78,13 @@ namespace Krizovatka
                 {
                     sequence_index = 0;
                 }
+                State = sequence[sequence_index]; // Aktualizuj hodnotu
                 ChangeLight(sequence[sequence_index]);
             }
         }
 
-        private void ChangeLight(byte state)
-        {
-            this.State = state; // Aktualizuj hodnotu
+        protected virtual void ChangeLight(byte state)
+        {         
 
             K8055N.SetCurrentDevice(Card); // Spojení se správnou kartou
             

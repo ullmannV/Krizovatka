@@ -27,9 +27,21 @@ namespace Krizovatka
 {
     public partial class Form1 : Form
     {
+        SemaforGraphics ss;
         public Form1()
         {
             InitializeComponent();
+            byte[] pole = { 1, 0, 2};
+            ss = new SemaforGraphics(pole);
+
+            button1.Click += new System.EventHandler(ss.HandleTick);
+            button1.Click += new System.EventHandler(this.Foo);
+
+        }
+
+        private void Foo(object sender, EventArgs e)
+        {
+            MessageBox.Show(ss.State.ToString() + ss.sequence_index.ToString() + ss.clock_count.ToString());
         }
     }
 }
