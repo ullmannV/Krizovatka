@@ -23,23 +23,17 @@ namespace Krizovatka
         private Light Yellow { get; set; }
         private Light Green { get; set; }
         
-        public byte clock_count;
-        public byte sequence_index;
+        protected byte sequence_index;
         
         // Pole obsahující sekvenci
         public byte[] sequence { get; set; }
-
-        // Konstanty pro vnitřní použití třídy
-        protected const byte LONG_INTERVAL = 10;
-        protected const byte SHORT_INTERVAL = 2;
-        
+                    
         protected Semafor()
         {
-            
+            // prázdný konstruktor pro případ dědění
         }
         public Semafor(byte card, byte bit_red, byte bit_yellow, byte bit_green, byte[] sequence)
         {
-            clock_count = 0;
             sequence_index = 0;
             
             // inicializace informaci o hardwaru
@@ -54,36 +48,17 @@ namespace Krizovatka
 
         public void HandleTick(object sender, EventArgs e)
         {
-            clock_count++;
-
-            // Dlouhé intervaly
-            if (State < 2)
+            // Test zda sekvence skončila
+            if (++sequence_index >= sequence.Length)
             {
-                IncrementSequenceIndex(LONG_INTERVAL);
+                sequence_index = 0;
             }
-            else // Krátké intervaly
-            {
-                IncrementSequenceIndex(SHORT_INTERVAL);
-            }
+            State = sequence[sequence_index]; // Aktualizuj hodnotu
+            ChangeLight(sequence[sequence_index]);      
         }
+               
 
-        protected void IncrementSequenceIndex(byte interval)
-        {
-            if (clock_count == interval)
-            {
-                clock_count = 0; // reset clock counter
-
-                // Test zda sekvence skončila
-                if (++sequence_index >= sequence.Length)
-                {
-                    sequence_index = 0;
-                }
-                State = sequence[sequence_index]; // Aktualizuj hodnotu
-                ChangeLight(sequence[sequence_index]);
-            }
-        }
-
-        protected void ChangeLight(byte state)
+        protected virtual void ChangeLight(byte state)
         {         
 
             K8055N.SetCurrentDevice(Card); // Spojení se správnou kartou
