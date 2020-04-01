@@ -66,6 +66,7 @@
             this.green_vedlejsi_vpravo1 = new System.Windows.Forms.Label();
             this.green_vedlejsi_vpravo2 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.check_box_night = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // red_hlavni_silnice1
@@ -432,11 +433,22 @@
             // 
             this.timer1.Interval = 1000;
             // 
+            // check_box_night
+            // 
+            this.check_box_night.AutoSize = true;
+            this.check_box_night.Location = new System.Drawing.Point(726, 371);
+            this.check_box_night.Name = "check_box_night";
+            this.check_box_night.Size = new System.Drawing.Size(83, 17);
+            this.check_box_night.TabIndex = 37;
+            this.check_box_night.Text = "Noční režim";
+            this.check_box_night.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(842, 450);
+            this.Controls.Add(this.check_box_night);
             this.Controls.Add(this.green_vedlejsi_vpravo2);
             this.Controls.Add(this.green_vedlejsi_vpravo1);
             this.Controls.Add(this.green_vedlejsi_prechod4);
@@ -521,6 +533,7 @@
         private System.Windows.Forms.Label green_vedlejsi_vpravo1;
         private System.Windows.Forms.Label green_vedlejsi_vpravo2;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.CheckBox check_box_night;
     }
 }
 

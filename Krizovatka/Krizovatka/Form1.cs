@@ -27,46 +27,61 @@ namespace Krizovatka
 {
     public partial class Form1 : Form
     {
-        Semafor hlavni_silnice;
-        Semafor hlavni_prechod;
-        Semafor hlavni_vlevo;
+        // 0 => Stát      (Červená)         -> dlouhý interval
+        // 1 => Jeď       (Zelená)          -> dlouhý interval
+        // 2 => Připravit (Červená + Žlutá) -> krátký interval
+        // 3 => Pozor     (Žlutá)           -> krátký interval
+        // 4 => Servis    (= OFF)           -> krátký interval
+        // Definice sekvence stavů semaforů křižovatky
+        private readonly byte[] sekvence_hlavni_silnice =   { 1, 1, 1, 3, 0, 0, 0, 0, 0, 0, 0, 2 };
+        private readonly byte[] sekvence_hlavni_prechod =   { 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0 };
+        private readonly byte[] sekvence_hlavni_vlevo =     { 0, 0, 0, 2, 1, 1, 1, 3, 0, 0, 0, 0 };
+        private readonly byte[] sekvence_vedlejsi_silnice = { 0, 0, 0, 0, 0, 0, 0, 2, 1, 1, 1, 3 };
+        private readonly byte[] sekvence_vedlejsi_vpravo =  { 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0 };
+        private readonly byte[] sekvence_vedlejsi_prechod = { 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+        private readonly byte[] sekvence_off =   { 4, 4 };
+        private readonly byte[] sekvence_night = { 3, 4 };
 
-        Semafor vedlejsi_silnice;
-        Semafor vedlejsi_vpravo;
-        Semafor vedlejsi_prechod;
+        private Semafor hlavni_silnice;
+        private Semafor hlavni_prechod;
+        private Semafor hlavni_vlevo;
+
+        private Semafor vedlejsi_silnice;
+        private Semafor vedlejsi_vpravo;
+        private Semafor vedlejsi_prechod;
         
-        Label[] red_hlavni_silnice;
-        Label[] yellow_hlavni_silnice;
-        Label[] green_hlavni_silnice;
+        private Label[] red_hlavni_silnice;
+        private Label[] yellow_hlavni_silnice;
+        private Label[] green_hlavni_silnice;
 
-        Label[] red_hlavni_prechod;
-        Label[] green_hlavni_prechod;
+        private Label[] red_hlavni_prechod;
+        private Label[] green_hlavni_prechod;
 
-        Label[] red_hlavni_vlevo;
-        Label[] yellow_hlavni_vlevo;
-        Label[] green_hlavni_vlevo;
+        private Label[] red_hlavni_vlevo;
+        private Label[] yellow_hlavni_vlevo;
+        private Label[] green_hlavni_vlevo;
 
-        Label[] red_vedlejsi_silnice;
-        Label[] yellow_vedlejsi_silnice;
-        Label[] green_vedlejsi_silnice;
+        private Label[] red_vedlejsi_silnice;
+        private Label[] yellow_vedlejsi_silnice;
+        private Label[] green_vedlejsi_silnice;
 
-        Label[] red_vedlejsi_prechod;
-        Label[] green_vedlejsi_prechod;
+        private Label[] red_vedlejsi_prechod;
+        private Label[] green_vedlejsi_prechod;
 
-        Label[] green_vedlejsi_vpravo;
+        private Label[] green_vedlejsi_vpravo;
 
         public Form1()
         {
             // Inicializace formuláře 
             InitializeComponent();
-        
+
             // Vytvoření semaforů              
-            hlavni_silnice = new Semafor(1, 2, 3, 4, new byte[]   { 1, 1, 1, 3, 0, 0, 0, 0, 0, 0, 0, 2 });
-            hlavni_vlevo = new Semafor(1, 2, 3, 4, new byte[]     { 0, 0, 0, 0, 0, 0, 0, 2, 1, 1, 1, 3 });
-            hlavni_prechod = new Semafor(1, 2, 3, 4, new byte[]   { 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0 });
-            vedlejsi_prechod = new Semafor(1, 2, 3, 4, new byte[] { 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0 });
-            vedlejsi_silnice = new Semafor(1, 2, 3, 4, new byte[] { 0, 0, 0, 2, 1, 1, 1, 3, 0, 0, 0, 0 });
-            vedlejsi_vpravo = new Semafor(1, 2, 3, 4, new byte[]  { 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0 });
+            hlavni_silnice = new Semafor(1, 2, 3, 4, sekvence_hlavni_silnice);
+            hlavni_vlevo = new Semafor(1, 2, 3, 4, sekvence_hlavni_vlevo);
+            hlavni_prechod = new Semafor(1, 2, 3, 4, sekvence_hlavni_prechod);
+            vedlejsi_prechod = new Semafor(1, 2, 3, 4, sekvence_vedlejsi_prechod);
+            vedlejsi_silnice = new Semafor(1, 2, 3, 4, sekvence_vedlejsi_silnice);
+            vedlejsi_vpravo = new Semafor(1, 2, 3, 4, sekvence_vedlejsi_vpravo);
 
             // pole grafickych prvků
             red_hlavni_silnice = new Label[] { red_hlavni_silnice1, red_hlavni_silnice2 };
@@ -98,8 +113,32 @@ namespace Krizovatka
             timer1.Tick += new System.EventHandler(vedlejsi_prechod.HandleTick);
             timer1.Tick += new System.EventHandler(Redraw);
 
+            check_box_night.CheckedChanged += new System.EventHandler(ChangeDayTime);
+
             // Start timer
             timer1.Enabled = true;
+        }
+
+        private void ChangeDayTime(object sender, EventArgs e)
+        {
+            if (check_box_night.Checked)
+            {
+                hlavni_silnice.sequence = sekvence_night;
+                hlavni_prechod.sequence = sekvence_off;
+                hlavni_vlevo.sequence = sekvence_night;
+                vedlejsi_silnice.sequence = sekvence_night;
+                vedlejsi_vpravo.sequence = sekvence_off;
+                vedlejsi_prechod.sequence = sekvence_off;
+            }
+            else
+            {
+                hlavni_silnice.sequence = sekvence_hlavni_silnice;
+                hlavni_prechod.sequence = sekvence_hlavni_prechod;
+                hlavni_vlevo.sequence = sekvence_hlavni_vlevo;
+                vedlejsi_silnice.sequence = sekvence_vedlejsi_silnice;
+                vedlejsi_vpravo.sequence = sekvence_vedlejsi_vpravo;
+                vedlejsi_prechod.sequence = sekvence_vedlejsi_prechod;
+            }
         }
         private void Redraw(object sender, EventArgs e)
         {
@@ -209,12 +248,13 @@ namespace Krizovatka
             // vedlejsi_vpravo
             switch (vedlejsi_vpravo.State)
             {
+                case 4: // stejná reakce jako na stav 0
                 case 0:
                     foreach (Label lbl in green_vedlejsi_vpravo) lbl.BackColor = Color.Black;
                     break;
                 case 1:
                     foreach (Label lbl in green_vedlejsi_vpravo) lbl.BackColor = Color.Green;
-                    break;
+                    break;                               
             }
             // vedlejsi_prechod 
             switch (vedlejsi_prechod.State)
