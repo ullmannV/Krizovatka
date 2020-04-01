@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.red_hlavni_silnice1 = new System.Windows.Forms.Label();
             this.yellow_hlavni_silnice1 = new System.Windows.Forms.Label();
             this.green_hlavni_silnice1 = new System.Windows.Forms.Label();
@@ -73,7 +74,7 @@
             // 
             this.red_hlavni_silnice1.AutoSize = true;
             this.red_hlavni_silnice1.BackColor = System.Drawing.SystemColors.ControlText;
-            this.red_hlavni_silnice1.Location = new System.Drawing.Point(467, 346);
+            this.red_hlavni_silnice1.Location = new System.Drawing.Point(543, 392);
             this.red_hlavni_silnice1.Name = "red_hlavni_silnice1";
             this.red_hlavni_silnice1.Size = new System.Drawing.Size(25, 26);
             this.red_hlavni_silnice1.TabIndex = 1;
@@ -83,7 +84,7 @@
             // 
             this.yellow_hlavni_silnice1.AutoSize = true;
             this.yellow_hlavni_silnice1.BackColor = System.Drawing.SystemColors.ControlText;
-            this.yellow_hlavni_silnice1.Location = new System.Drawing.Point(467, 372);
+            this.yellow_hlavni_silnice1.Location = new System.Drawing.Point(543, 418);
             this.yellow_hlavni_silnice1.Name = "yellow_hlavni_silnice1";
             this.yellow_hlavni_silnice1.Size = new System.Drawing.Size(25, 26);
             this.yellow_hlavni_silnice1.TabIndex = 2;
@@ -93,7 +94,7 @@
             // 
             this.green_hlavni_silnice1.AutoSize = true;
             this.green_hlavni_silnice1.BackColor = System.Drawing.SystemColors.ControlText;
-            this.green_hlavni_silnice1.Location = new System.Drawing.Point(467, 398);
+            this.green_hlavni_silnice1.Location = new System.Drawing.Point(543, 444);
             this.green_hlavni_silnice1.Name = "green_hlavni_silnice1";
             this.green_hlavni_silnice1.Size = new System.Drawing.Size(25, 26);
             this.green_hlavni_silnice1.TabIndex = 3;
@@ -103,7 +104,7 @@
             // 
             this.red_hlavni_silnice2.AutoSize = true;
             this.red_hlavni_silnice2.BackColor = System.Drawing.SystemColors.ControlText;
-            this.red_hlavni_silnice2.Location = new System.Drawing.Point(329, 80);
+            this.red_hlavni_silnice2.Location = new System.Drawing.Point(196, 106);
             this.red_hlavni_silnice2.Name = "red_hlavni_silnice2";
             this.red_hlavni_silnice2.Size = new System.Drawing.Size(25, 26);
             this.red_hlavni_silnice2.TabIndex = 4;
@@ -113,7 +114,7 @@
             // 
             this.yellow_hlavni_silnice2.AutoSize = true;
             this.yellow_hlavni_silnice2.BackColor = System.Drawing.SystemColors.ControlText;
-            this.yellow_hlavni_silnice2.Location = new System.Drawing.Point(329, 54);
+            this.yellow_hlavni_silnice2.Location = new System.Drawing.Point(196, 80);
             this.yellow_hlavni_silnice2.Name = "yellow_hlavni_silnice2";
             this.yellow_hlavni_silnice2.Size = new System.Drawing.Size(25, 26);
             this.yellow_hlavni_silnice2.TabIndex = 5;
@@ -123,7 +124,7 @@
             // 
             this.green_hlavni_silnice2.AutoSize = true;
             this.green_hlavni_silnice2.BackColor = System.Drawing.SystemColors.ControlText;
-            this.green_hlavni_silnice2.Location = new System.Drawing.Point(329, 28);
+            this.green_hlavni_silnice2.Location = new System.Drawing.Point(196, 54);
             this.green_hlavni_silnice2.Name = "green_hlavni_silnice2";
             this.green_hlavni_silnice2.Size = new System.Drawing.Size(25, 26);
             this.green_hlavni_silnice2.TabIndex = 6;
@@ -133,7 +134,7 @@
             // 
             this.red_hlavni_vlevo1.AutoSize = true;
             this.red_hlavni_vlevo1.BackColor = System.Drawing.SystemColors.ControlText;
-            this.red_hlavni_vlevo1.Location = new System.Drawing.Point(434, 346);
+            this.red_hlavni_vlevo1.Location = new System.Drawing.Point(510, 392);
             this.red_hlavni_vlevo1.Name = "red_hlavni_vlevo1";
             this.red_hlavni_vlevo1.Size = new System.Drawing.Size(25, 26);
             this.red_hlavni_vlevo1.TabIndex = 7;
@@ -143,7 +144,7 @@
             // 
             this.yellow_hlavni_vlevo1.AutoSize = true;
             this.yellow_hlavni_vlevo1.BackColor = System.Drawing.SystemColors.ControlText;
-            this.yellow_hlavni_vlevo1.Location = new System.Drawing.Point(434, 372);
+            this.yellow_hlavni_vlevo1.Location = new System.Drawing.Point(510, 418);
             this.yellow_hlavni_vlevo1.Name = "yellow_hlavni_vlevo1";
             this.yellow_hlavni_vlevo1.Size = new System.Drawing.Size(25, 26);
             this.yellow_hlavni_vlevo1.TabIndex = 8;
@@ -153,7 +154,7 @@
             // 
             this.green_hlavni_vlevo1.AutoSize = true;
             this.green_hlavni_vlevo1.BackColor = System.Drawing.SystemColors.ControlText;
-            this.green_hlavni_vlevo1.Location = new System.Drawing.Point(434, 398);
+            this.green_hlavni_vlevo1.Location = new System.Drawing.Point(510, 444);
             this.green_hlavni_vlevo1.Name = "green_hlavni_vlevo1";
             this.green_hlavni_vlevo1.Size = new System.Drawing.Size(25, 26);
             this.green_hlavni_vlevo1.TabIndex = 9;
@@ -163,7 +164,7 @@
             // 
             this.red_hlavni_vlevo2.AutoSize = true;
             this.red_hlavni_vlevo2.BackColor = System.Drawing.SystemColors.ControlText;
-            this.red_hlavni_vlevo2.Location = new System.Drawing.Point(362, 80);
+            this.red_hlavni_vlevo2.Location = new System.Drawing.Point(229, 106);
             this.red_hlavni_vlevo2.Name = "red_hlavni_vlevo2";
             this.red_hlavni_vlevo2.Size = new System.Drawing.Size(25, 26);
             this.red_hlavni_vlevo2.TabIndex = 10;
@@ -173,7 +174,7 @@
             // 
             this.yellow_hlavni_vlevo2.AutoSize = true;
             this.yellow_hlavni_vlevo2.BackColor = System.Drawing.SystemColors.ControlText;
-            this.yellow_hlavni_vlevo2.Location = new System.Drawing.Point(362, 54);
+            this.yellow_hlavni_vlevo2.Location = new System.Drawing.Point(229, 80);
             this.yellow_hlavni_vlevo2.Name = "yellow_hlavni_vlevo2";
             this.yellow_hlavni_vlevo2.Size = new System.Drawing.Size(25, 26);
             this.yellow_hlavni_vlevo2.TabIndex = 11;
@@ -183,7 +184,7 @@
             // 
             this.green_hlavni_vlevo2.AutoSize = true;
             this.green_hlavni_vlevo2.BackColor = System.Drawing.SystemColors.ControlText;
-            this.green_hlavni_vlevo2.Location = new System.Drawing.Point(362, 28);
+            this.green_hlavni_vlevo2.Location = new System.Drawing.Point(229, 54);
             this.green_hlavni_vlevo2.Name = "green_hlavni_vlevo2";
             this.green_hlavni_vlevo2.Size = new System.Drawing.Size(25, 26);
             this.green_hlavni_vlevo2.TabIndex = 12;
@@ -193,7 +194,7 @@
             // 
             this.red_hlavni_prechod1.AutoSize = true;
             this.red_hlavni_prechod1.BackColor = System.Drawing.SystemColors.ControlText;
-            this.red_hlavni_prechod1.Location = new System.Drawing.Point(249, 122);
+            this.red_hlavni_prechod1.Location = new System.Drawing.Point(247, 160);
             this.red_hlavni_prechod1.Name = "red_hlavni_prechod1";
             this.red_hlavni_prechod1.Size = new System.Drawing.Size(25, 26);
             this.red_hlavni_prechod1.TabIndex = 13;
@@ -203,7 +204,7 @@
             // 
             this.red_hlavni_prechod2.AutoSize = true;
             this.red_hlavni_prechod2.BackColor = System.Drawing.SystemColors.ControlText;
-            this.red_hlavni_prechod2.Location = new System.Drawing.Point(546, 122);
+            this.red_hlavni_prechod2.Location = new System.Drawing.Point(499, 160);
             this.red_hlavni_prechod2.Name = "red_hlavni_prechod2";
             this.red_hlavni_prechod2.Size = new System.Drawing.Size(25, 26);
             this.red_hlavni_prechod2.TabIndex = 14;
@@ -213,7 +214,7 @@
             // 
             this.green_hlavni_prechod1.AutoSize = true;
             this.green_hlavni_prechod1.BackColor = System.Drawing.SystemColors.ControlText;
-            this.green_hlavni_prechod1.Location = new System.Drawing.Point(282, 122);
+            this.green_hlavni_prechod1.Location = new System.Drawing.Point(280, 160);
             this.green_hlavni_prechod1.Name = "green_hlavni_prechod1";
             this.green_hlavni_prechod1.Size = new System.Drawing.Size(25, 26);
             this.green_hlavni_prechod1.TabIndex = 15;
@@ -223,7 +224,7 @@
             // 
             this.green_hlavni_prechod2.AutoSize = true;
             this.green_hlavni_prechod2.BackColor = System.Drawing.SystemColors.ControlText;
-            this.green_hlavni_prechod2.Location = new System.Drawing.Point(513, 122);
+            this.green_hlavni_prechod2.Location = new System.Drawing.Point(466, 160);
             this.green_hlavni_prechod2.Name = "green_hlavni_prechod2";
             this.green_hlavni_prechod2.Size = new System.Drawing.Size(25, 26);
             this.green_hlavni_prechod2.TabIndex = 16;
@@ -233,7 +234,7 @@
             // 
             this.red_hlavni_prechod3.AutoSize = true;
             this.red_hlavni_prechod3.BackColor = System.Drawing.SystemColors.ControlText;
-            this.red_hlavni_prechod3.Location = new System.Drawing.Point(249, 318);
+            this.red_hlavni_prechod3.Location = new System.Drawing.Point(244, 346);
             this.red_hlavni_prechod3.Name = "red_hlavni_prechod3";
             this.red_hlavni_prechod3.Size = new System.Drawing.Size(25, 26);
             this.red_hlavni_prechod3.TabIndex = 17;
@@ -243,7 +244,7 @@
             // 
             this.green_hlavni_prechod3.AutoSize = true;
             this.green_hlavni_prechod3.BackColor = System.Drawing.SystemColors.ControlText;
-            this.green_hlavni_prechod3.Location = new System.Drawing.Point(282, 318);
+            this.green_hlavni_prechod3.Location = new System.Drawing.Point(277, 346);
             this.green_hlavni_prechod3.Name = "green_hlavni_prechod3";
             this.green_hlavni_prechod3.Size = new System.Drawing.Size(25, 26);
             this.green_hlavni_prechod3.TabIndex = 18;
@@ -253,7 +254,7 @@
             // 
             this.red_hlavni_prechod4.AutoSize = true;
             this.red_hlavni_prechod4.BackColor = System.Drawing.SystemColors.ControlText;
-            this.red_hlavni_prechod4.Location = new System.Drawing.Point(546, 318);
+            this.red_hlavni_prechod4.Location = new System.Drawing.Point(499, 346);
             this.red_hlavni_prechod4.Name = "red_hlavni_prechod4";
             this.red_hlavni_prechod4.Size = new System.Drawing.Size(25, 26);
             this.red_hlavni_prechod4.TabIndex = 19;
@@ -263,7 +264,7 @@
             // 
             this.green_hlavni_prechod4.AutoSize = true;
             this.green_hlavni_prechod4.BackColor = System.Drawing.SystemColors.ControlText;
-            this.green_hlavni_prechod4.Location = new System.Drawing.Point(513, 318);
+            this.green_hlavni_prechod4.Location = new System.Drawing.Point(468, 346);
             this.green_hlavni_prechod4.Name = "green_hlavni_prechod4";
             this.green_hlavni_prechod4.Size = new System.Drawing.Size(25, 26);
             this.green_hlavni_prechod4.TabIndex = 20;
@@ -273,7 +274,7 @@
             // 
             this.red_vedlejsi_silnice1.AutoSize = true;
             this.red_vedlejsi_silnice1.BackColor = System.Drawing.SystemColors.ControlText;
-            this.red_vedlejsi_silnice1.Location = new System.Drawing.Point(122, 271);
+            this.red_vedlejsi_silnice1.Location = new System.Drawing.Point(151, 334);
             this.red_vedlejsi_silnice1.Name = "red_vedlejsi_silnice1";
             this.red_vedlejsi_silnice1.Size = new System.Drawing.Size(25, 26);
             this.red_vedlejsi_silnice1.TabIndex = 21;
@@ -283,7 +284,7 @@
             // 
             this.yellow_vedlejsi_silnice1.AutoSize = true;
             this.yellow_vedlejsi_silnice1.BackColor = System.Drawing.SystemColors.ControlText;
-            this.yellow_vedlejsi_silnice1.Location = new System.Drawing.Point(98, 271);
+            this.yellow_vedlejsi_silnice1.Location = new System.Drawing.Point(127, 334);
             this.yellow_vedlejsi_silnice1.Name = "yellow_vedlejsi_silnice1";
             this.yellow_vedlejsi_silnice1.Size = new System.Drawing.Size(25, 26);
             this.yellow_vedlejsi_silnice1.TabIndex = 22;
@@ -293,7 +294,7 @@
             // 
             this.green_vedlejsi_silnice1.AutoSize = true;
             this.green_vedlejsi_silnice1.BackColor = System.Drawing.SystemColors.ControlText;
-            this.green_vedlejsi_silnice1.Location = new System.Drawing.Point(74, 271);
+            this.green_vedlejsi_silnice1.Location = new System.Drawing.Point(103, 334);
             this.green_vedlejsi_silnice1.Name = "green_vedlejsi_silnice1";
             this.green_vedlejsi_silnice1.Size = new System.Drawing.Size(25, 26);
             this.green_vedlejsi_silnice1.TabIndex = 23;
@@ -303,7 +304,7 @@
             // 
             this.red_vedlejsi_silnice2.AutoSize = true;
             this.red_vedlejsi_silnice2.BackColor = System.Drawing.SystemColors.ControlText;
-            this.red_vedlejsi_silnice2.Location = new System.Drawing.Point(677, 172);
+            this.red_vedlejsi_silnice2.Location = new System.Drawing.Point(582, 160);
             this.red_vedlejsi_silnice2.Name = "red_vedlejsi_silnice2";
             this.red_vedlejsi_silnice2.Size = new System.Drawing.Size(25, 26);
             this.red_vedlejsi_silnice2.TabIndex = 24;
@@ -313,7 +314,7 @@
             // 
             this.yellow_vedlejsi_silnice2.AutoSize = true;
             this.yellow_vedlejsi_silnice2.BackColor = System.Drawing.SystemColors.ControlText;
-            this.yellow_vedlejsi_silnice2.Location = new System.Drawing.Point(700, 172);
+            this.yellow_vedlejsi_silnice2.Location = new System.Drawing.Point(605, 160);
             this.yellow_vedlejsi_silnice2.Name = "yellow_vedlejsi_silnice2";
             this.yellow_vedlejsi_silnice2.Size = new System.Drawing.Size(25, 26);
             this.yellow_vedlejsi_silnice2.TabIndex = 25;
@@ -323,7 +324,7 @@
             // 
             this.green_vedlejsi_silnice2.AutoSize = true;
             this.green_vedlejsi_silnice2.BackColor = System.Drawing.SystemColors.ControlText;
-            this.green_vedlejsi_silnice2.Location = new System.Drawing.Point(723, 172);
+            this.green_vedlejsi_silnice2.Location = new System.Drawing.Point(628, 160);
             this.green_vedlejsi_silnice2.Name = "green_vedlejsi_silnice2";
             this.green_vedlejsi_silnice2.Size = new System.Drawing.Size(25, 26);
             this.green_vedlejsi_silnice2.TabIndex = 26;
@@ -333,7 +334,7 @@
             // 
             this.red_vedlejsi_prechod1.AutoSize = true;
             this.red_vedlejsi_prechod1.BackColor = System.Drawing.SystemColors.ControlText;
-            this.red_vedlejsi_prechod1.Location = new System.Drawing.Point(195, 148);
+            this.red_vedlejsi_prechod1.Location = new System.Drawing.Point(209, 325);
             this.red_vedlejsi_prechod1.Name = "red_vedlejsi_prechod1";
             this.red_vedlejsi_prechod1.Size = new System.Drawing.Size(25, 26);
             this.red_vedlejsi_prechod1.TabIndex = 27;
@@ -343,7 +344,7 @@
             // 
             this.green_vedlejsi_prechod1.AutoSize = true;
             this.green_vedlejsi_prechod1.BackColor = System.Drawing.SystemColors.ControlText;
-            this.green_vedlejsi_prechod1.Location = new System.Drawing.Point(195, 174);
+            this.green_vedlejsi_prechod1.Location = new System.Drawing.Point(209, 299);
             this.green_vedlejsi_prechod1.Name = "green_vedlejsi_prechod1";
             this.green_vedlejsi_prechod1.Size = new System.Drawing.Size(25, 26);
             this.green_vedlejsi_prechod1.TabIndex = 28;
@@ -353,7 +354,7 @@
             // 
             this.red_vedlejsi_prechod2.AutoSize = true;
             this.red_vedlejsi_prechod2.BackColor = System.Drawing.SystemColors.ControlText;
-            this.red_vedlejsi_prechod2.Location = new System.Drawing.Point(195, 336);
+            this.red_vedlejsi_prechod2.Location = new System.Drawing.Point(209, 168);
             this.red_vedlejsi_prechod2.Name = "red_vedlejsi_prechod2";
             this.red_vedlejsi_prechod2.Size = new System.Drawing.Size(25, 26);
             this.red_vedlejsi_prechod2.TabIndex = 29;
@@ -363,7 +364,7 @@
             // 
             this.green_vedlejsi_prechod2.AutoSize = true;
             this.green_vedlejsi_prechod2.BackColor = System.Drawing.SystemColors.ControlText;
-            this.green_vedlejsi_prechod2.Location = new System.Drawing.Point(195, 310);
+            this.green_vedlejsi_prechod2.Location = new System.Drawing.Point(209, 196);
             this.green_vedlejsi_prechod2.Name = "green_vedlejsi_prechod2";
             this.green_vedlejsi_prechod2.Size = new System.Drawing.Size(25, 26);
             this.green_vedlejsi_prechod2.TabIndex = 30;
@@ -373,7 +374,7 @@
             // 
             this.red_vedlejsi_prechod3.AutoSize = true;
             this.red_vedlejsi_prechod3.BackColor = System.Drawing.SystemColors.ControlText;
-            this.red_vedlejsi_prechod3.Location = new System.Drawing.Point(618, 148);
+            this.red_vedlejsi_prechod3.Location = new System.Drawing.Point(530, 168);
             this.red_vedlejsi_prechod3.Name = "red_vedlejsi_prechod3";
             this.red_vedlejsi_prechod3.Size = new System.Drawing.Size(25, 26);
             this.red_vedlejsi_prechod3.TabIndex = 31;
@@ -383,7 +384,7 @@
             // 
             this.green_vedlejsi_prechod3.AutoSize = true;
             this.green_vedlejsi_prechod3.BackColor = System.Drawing.SystemColors.ControlText;
-            this.green_vedlejsi_prechod3.Location = new System.Drawing.Point(618, 174);
+            this.green_vedlejsi_prechod3.Location = new System.Drawing.Point(530, 194);
             this.green_vedlejsi_prechod3.Name = "green_vedlejsi_prechod3";
             this.green_vedlejsi_prechod3.Size = new System.Drawing.Size(25, 26);
             this.green_vedlejsi_prechod3.TabIndex = 32;
@@ -393,7 +394,7 @@
             // 
             this.red_vedlejsi_prechod4.AutoSize = true;
             this.red_vedlejsi_prechod4.BackColor = System.Drawing.SystemColors.ControlText;
-            this.red_vedlejsi_prechod4.Location = new System.Drawing.Point(618, 336);
+            this.red_vedlejsi_prechod4.Location = new System.Drawing.Point(530, 334);
             this.red_vedlejsi_prechod4.Name = "red_vedlejsi_prechod4";
             this.red_vedlejsi_prechod4.Size = new System.Drawing.Size(25, 26);
             this.red_vedlejsi_prechod4.TabIndex = 33;
@@ -403,7 +404,7 @@
             // 
             this.green_vedlejsi_prechod4.AutoSize = true;
             this.green_vedlejsi_prechod4.BackColor = System.Drawing.SystemColors.ControlText;
-            this.green_vedlejsi_prechod4.Location = new System.Drawing.Point(618, 310);
+            this.green_vedlejsi_prechod4.Location = new System.Drawing.Point(530, 308);
             this.green_vedlejsi_prechod4.Name = "green_vedlejsi_prechod4";
             this.green_vedlejsi_prechod4.Size = new System.Drawing.Size(25, 26);
             this.green_vedlejsi_prechod4.TabIndex = 34;
@@ -413,7 +414,7 @@
             // 
             this.green_vedlejsi_vpravo1.AutoSize = true;
             this.green_vedlejsi_vpravo1.BackColor = System.Drawing.SystemColors.ControlText;
-            this.green_vedlejsi_vpravo1.Location = new System.Drawing.Point(122, 297);
+            this.green_vedlejsi_vpravo1.Location = new System.Drawing.Point(151, 360);
             this.green_vedlejsi_vpravo1.Name = "green_vedlejsi_vpravo1";
             this.green_vedlejsi_vpravo1.Size = new System.Drawing.Size(25, 26);
             this.green_vedlejsi_vpravo1.TabIndex = 35;
@@ -423,7 +424,7 @@
             // 
             this.green_vedlejsi_vpravo2.AutoSize = true;
             this.green_vedlejsi_vpravo2.BackColor = System.Drawing.SystemColors.ControlText;
-            this.green_vedlejsi_vpravo2.Location = new System.Drawing.Point(677, 148);
+            this.green_vedlejsi_vpravo2.Location = new System.Drawing.Point(582, 136);
             this.green_vedlejsi_vpravo2.Name = "green_vedlejsi_vpravo2";
             this.green_vedlejsi_vpravo2.Size = new System.Drawing.Size(25, 26);
             this.green_vedlejsi_vpravo2.TabIndex = 36;
@@ -436,7 +437,7 @@
             // check_box_night
             // 
             this.check_box_night.AutoSize = true;
-            this.check_box_night.Location = new System.Drawing.Point(726, 371);
+            this.check_box_night.Location = new System.Drawing.Point(343, 254);
             this.check_box_night.Name = "check_box_night";
             this.check_box_night.Size = new System.Drawing.Size(83, 17);
             this.check_box_night.TabIndex = 37;
@@ -447,7 +448,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(842, 450);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(734, 524);
             this.Controls.Add(this.check_box_night);
             this.Controls.Add(this.green_vedlejsi_vpravo2);
             this.Controls.Add(this.green_vedlejsi_vpravo1);
@@ -485,6 +488,7 @@
             this.Controls.Add(this.green_hlavni_silnice1);
             this.Controls.Add(this.yellow_hlavni_silnice1);
             this.Controls.Add(this.red_hlavni_silnice1);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Form1";
             this.Text = "Křižovatka";

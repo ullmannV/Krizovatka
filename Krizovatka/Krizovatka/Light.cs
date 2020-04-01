@@ -15,12 +15,18 @@ namespace Krizovatka
         }
         public void SetBit()
         {
-            K8055N.SetDigitalChannel(BitNumber);
+            if (BitNumber > 0)
+            {
+                K8055N.SetDigitalChannel(BitNumber);
+            }            
         }
 
         public void ClearBit()
         {
-            K8055N.ClearDigitalChannel(BitNumber);
+            if (BitNumber > 0)
+            {
+                K8055N.ClearDigitalChannel(BitNumber);
+            }            
         }
     }
 }

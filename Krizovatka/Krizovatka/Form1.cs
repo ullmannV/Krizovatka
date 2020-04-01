@@ -70,18 +70,44 @@ namespace Krizovatka
 
         private Label[] green_vedlejsi_vpravo;
 
+        // zapojeni tlacitka
+        private byte input_bit_night = 0;
+        private byte input_bit_day = 1;
+        private byte input_card = 0;
+
         public Form1()
         {
             // Inicializace formuláře 
             InitializeComponent();
 
-            // Vytvoření semaforů              
-            hlavni_silnice = new Semafor(1, 2, 3, 4, sekvence_hlavni_silnice);
-            hlavni_vlevo = new Semafor(1, 2, 3, 4, sekvence_hlavni_vlevo);
-            hlavni_prechod = new Semafor(1, 2, 3, 4, sekvence_hlavni_prechod);
-            vedlejsi_prechod = new Semafor(1, 2, 3, 4, sekvence_vedlejsi_prechod);
-            vedlejsi_silnice = new Semafor(1, 2, 3, 4, sekvence_vedlejsi_silnice);
-            vedlejsi_vpravo = new Semafor(1, 2, 3, 4, sekvence_vedlejsi_vpravo);
+            // Vytvoření semaforů     
+            /*
+             * Zapojení semaforů
+             * Card 0
+             * bit 1 -> hlavni rovne cervena
+             * bit 2 -> hlavni rovne zluta
+             * bit 3 -> hlavni rovne zelena
+             * bit 4 -> hlavni vlevo cervena
+             * bit 5 -> hlavni vlevo zluta
+             * bit 6 -> hlavni vlevo zelena
+             * bit 7 -> hlavni prechod cervena
+             * bit 8 -> hlavni prechod zelena
+             * Card 1
+             * bit 1 -> vedlejsi prechod cervena
+             * bit 2 -> vedlejsi prechod zelena
+             * bit 3 -> vedlejsi rovne cervena
+             * bit 4 -> vedlejsi rovne zluta
+             * bit 5 -> vedlejsi rovne zelena
+             * bit 6 -> vedlejsi vpravo zelena
+             * bit 7 -> [nezapojeno]
+             * bit 8 -> [nezapojeno]
+             */
+            hlavni_silnice = new Semafor(0, 1, 2, 3, sekvence_hlavni_silnice);
+            hlavni_vlevo = new Semafor(0, 4, 5, 6, sekvence_hlavni_vlevo);
+            hlavni_prechod = new Semafor(0, 7, 0, 8, sekvence_hlavni_prechod);
+            vedlejsi_prechod = new Semafor(1, 1, 0, 2, sekvence_vedlejsi_prechod);
+            vedlejsi_silnice = new Semafor(1, 3, 4, 5, sekvence_vedlejsi_silnice);
+            vedlejsi_vpravo = new Semafor(1, 0, 0, 6, sekvence_vedlejsi_vpravo);
 
             // pole grafickych prvků
             red_hlavni_silnice = new Label[] { red_hlavni_silnice1, red_hlavni_silnice2 };
@@ -111,6 +137,7 @@ namespace Krizovatka
             timer1.Tick += new System.EventHandler(vedlejsi_silnice.HandleTick);
             timer1.Tick += new System.EventHandler(vedlejsi_vpravo.HandleTick);
             timer1.Tick += new System.EventHandler(vedlejsi_prechod.HandleTick);
+            timer1.Tick += new System.EventHandler(ButtonInput);
             timer1.Tick += new System.EventHandler(Redraw);
 
             check_box_night.CheckedChanged += new System.EventHandler(ChangeDayTime);
@@ -138,6 +165,22 @@ namespace Krizovatka
                 vedlejsi_silnice.sequence = sekvence_vedlejsi_silnice;
                 vedlejsi_vpravo.sequence = sekvence_vedlejsi_vpravo;
                 vedlejsi_prechod.sequence = sekvence_vedlejsi_prechod;
+            }
+        }
+        private void ButtonInput(object sender, EventArgs e)
+        {
+            K8055N.SetCurrentDevice(input_card);
+            bool input_night = K8055N.ReadDigitalChannel(input_bit_night);
+            bool input_day = K8055N.ReadDigitalChannel(input_bit_day);
+
+            // tlacitko aktivni v log´. 0
+            if (!(input_night) && input_day)
+            {
+                check_box_night.Checked = true;
+            }
+            else if (input_night && !(input_day))
+            {
+                check_box_night.Checked = false;
             }
         }
         private void Redraw(object sender, EventArgs e)
