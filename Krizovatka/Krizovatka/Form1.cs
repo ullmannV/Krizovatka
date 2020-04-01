@@ -61,12 +61,12 @@ namespace Krizovatka
             InitializeComponent();
         
             // Vytvoření semaforů              
-            hlavni_silnice = new Semafor(1, 2, 3, 4, new byte[] { 1, 3, 0, 0, 0, 2 });
-            hlavni_vlevo = new Semafor(1, 2, 3, 4, new byte[] { 0, 0, 0, 2, 1, 3 });
-            hlavni_prechod = new Semafor(1, 2, 3, 4, new byte[] { 0, 0, 1, 0, 0, 0 });
-            vedlejsi_prechod = new Semafor(1, 2, 3, 4, new byte[] { 1, 0, 0, 0, 0, 0 });
-            vedlejsi_silnice = new Semafor(1, 2, 3, 4, new byte[] { 0, 2, 1, 3, 0, 0 });
-            vedlejsi_vpravo = new Semafor(1, 2, 3, 4, new byte[] { 0, 0, 0, 0, 1, 0 });
+            hlavni_silnice = new Semafor(1, 2, 3, 4, new byte[]   { 1, 1, 1, 3, 0, 0, 0, 0, 0, 0, 0, 2 });
+            hlavni_vlevo = new Semafor(1, 2, 3, 4, new byte[]     { 0, 0, 0, 0, 0, 0, 0, 2, 1, 1, 1, 3 });
+            hlavni_prechod = new Semafor(1, 2, 3, 4, new byte[]   { 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0 });
+            vedlejsi_prechod = new Semafor(1, 2, 3, 4, new byte[] { 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0 });
+            vedlejsi_silnice = new Semafor(1, 2, 3, 4, new byte[] { 0, 0, 0, 2, 1, 1, 1, 3, 0, 0, 0, 0 });
+            vedlejsi_vpravo = new Semafor(1, 2, 3, 4, new byte[]  { 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0 });
 
             // pole grafickych prvků
             red_hlavni_silnice = new Label[] { red_hlavni_silnice1, red_hlavni_silnice2 };
